@@ -23,12 +23,30 @@ const reducer = (state = initialState, action) => {
       const id = action.payload;
       const item = state.menu.find(item => item.id === id);
 
-      const newItem = {
+      let newItem = {
         title: item.title,
         price: item.price,
         url: item.url,
-        id: item.id
+        id: item.id,
+        count: 1
       };
+
+      const semItemIndex = state.items.findIndex(item => item.id === id);
+
+      console.log(~semItemIndex);
+      if (~semItemIndex) {
+        newItem.count += state.items[semItemIndex].count;
+        console.log(newItem);
+
+        return {
+          ...state,
+          items: [
+            ...state.items.slice(0, semItemIndex),
+            newItem,
+            ...state.items.slice(semItemIndex + 1)
+          ]
+        }
+      }
 
       return {
         ...state,
