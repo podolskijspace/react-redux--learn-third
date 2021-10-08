@@ -1,8 +1,8 @@
 const initialState = {
   menu: [],
   loading: true,
-  items: [],
-  orderPrice: 0,
+  items: JSON.parse(localStorage.getItem('items')), //Получим массив элементов либо пустой массив
+  orderPrice: +localStorage.getItem('orderPrice'), //Получим число, либо null, если null, то преобразуется в 0
 }
 
 const reducer = (state = initialState, action) => {
@@ -16,7 +16,6 @@ const reducer = (state = initialState, action) => {
     case 'MENU_REQUESTED':
       return {
         ...state,
-        menu: state.menu,
         loading: true,
       }
     case 'ITEM_ADD_TO_CART':
@@ -57,7 +56,9 @@ const reducer = (state = initialState, action) => {
       newObjA.orderPrice = newObjA.items.reduce((sum, current) => {
         return current.count * current.price + sum;
       }, 0);
-      
+
+      localStorage.setItem('orderPrice', newObjA.orderPrice);
+      localStorage.setItem('items', JSON.stringify(newObjA.items));
       return newObjA;
 
     case 'ITEM_REMOVE_FROM_CART':
@@ -74,8 +75,10 @@ const reducer = (state = initialState, action) => {
       newObjD.orderPrice = newObjD.items.reduce((sum, current) => {
         return current.count * current.price + sum;
       }, 0);
-    
-    return newObjD;
+
+      localStorage.setItem('orderPrice', newObjD.orderPrice);
+      localStorage.setItem('items', JSON.stringify(newObjD.items));
+      return newObjD;
 
     default:
       return state;
