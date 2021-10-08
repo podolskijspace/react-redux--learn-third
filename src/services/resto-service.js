@@ -28,7 +28,7 @@ export default class RestoService {
     return this.getData('/api/dealers/');
   }
 
-  getGoods ({id = []}) {
+  getGoods ({id = null} = {}) {
     if (id) {
       const dealers = id.reduce((summ, item) => {
         return summ + item + ',';

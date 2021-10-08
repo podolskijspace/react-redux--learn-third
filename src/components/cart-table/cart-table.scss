@@ -1,37 +1,91 @@
+@import '../../SCSS/media';
+
 .cart {
-    padding-top: 120px;
-    padding-bottom: 50px;
-    min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 50px;
+  min-height: 100vh;
+  overflow: hidden;
+
+  @include phone {
+    padding-top: 40px;
+  }
+
     &__title {
-        font-size: 36px;
-        color: #fff;
-        text-align: center;
-        font-weight: 300;
+      font-size: 36px;
+      color: #fff;
+      text-align: center;
+      font-weight: 300;
+      @include phone {
+        font-size: 20px;
+      }
     }
     &__list {
         width: 60%;
         margin: 0 auto;
+      @include phone {
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
     }
     &__item {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      border: 1px solid rgba(256,256,256, .2);
+      background-color: rgba(0,0,0,.7);
+      box-shadow: 0 0 20px rgba(256,256,256, .1);
+
+      @include phone{
+        padding: 15px 0;
+        flex-direction: column;
         align-items: center;
-        margin-top: 40px;
-        border: 1px solid rgba(256,256,256, .2);
-        background-color: rgba(0,0,0,.7);
-        box-shadow: 0 0 20px rgba(256,256,256, .1);
-        &-title, &-price  {
-            width: 250px;
-            text-align: center;
-            color: #fff;
-            font-size: 24px;
+        max-width: 200px;
+      }
+      &-count {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 130px;
+        text-align: center;
+        color: #fff;
+        font-size: 24px;
+
+        @include phone {
+          margin-top: 10px;
+          font-size: 16px;
         }
-        &-img {
-            height: 125px;
-            width: 250px;
-            object-fit: cover;
+      }
+      &-change {
+        background: #29a745;
+        border: 0;
+        border-radius: 10px;
+        padding: 2px 5px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+      &-title, &-price  {
+          width: 250px;
+          text-align: center;
+          color: #fff;
+          font-size: 24px;
+        @include phone {
+          font-size: 16px;
         }
+      }
+      &-img {
+          height: 125px;
+          max-width: 100%;
+          max-height: 100%;
+
+        @include phone {
+          height: 100px;
+          margin-bottom: 10px;
+        }
+      }
     }
     &__close {
         position: absolute;
