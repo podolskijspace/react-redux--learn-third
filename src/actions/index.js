@@ -18,10 +18,11 @@ const addedToCart =(id) => {
   }
 }
 
-const deleteFromCart =(id) => {
+const deleteFromCart =(id, mode) => {
   return {
     type: 'ITEM_REMOVE_FROM_CART',
-    payload: id
+    payload: id,
+    mode
   }
 }
 

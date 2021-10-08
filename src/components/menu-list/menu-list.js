@@ -11,7 +11,11 @@ class MenuList extends Component {
   componentDidMount () {
     this.props.menuRequested();
     const {RestoService} = this.props;
-    RestoService.getMenuItems()
+
+    // RestoService.getGoods({id: ["0c4aab30", "1efa7e46"]})
+    //   .then(res => this.props.menuLoaded(res));
+
+    RestoService.getGoods()
       .then(res => this.props.menuLoaded(res));
   }
 
@@ -26,13 +30,14 @@ class MenuList extends Component {
       <ul className="menu__list">
         {
           menuItems.map(menuItem => {
+            console.log(menuItem)
             return <MenuListItem key={menuItem.id} menuItem={menuItem} onAddToCart={() => addedToCart(menuItem.id)}/>;
           })
         }
       </ul>
     )
   }
-};
+}
 
 const mapStateToProps = (state) => {
   return {

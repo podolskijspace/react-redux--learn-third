@@ -1,19 +1,30 @@
+@import '../../SCSS/media';
+
 .header {
-    background-color: rgba(0,0,0, .5);
-    height: 60px;
+  background-color: rgba(0,0,0, .5);
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 50px;
+
+  @include phone {
+    justify-content: space-between;
+  }
+
+  &__link {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 50px;
-    &__link {
-        display: flex;
-        margin-right: 40px;
-        font-size: 18px;
-        color: #fff;
-        text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+
+    @include phone {
+      margin: 0;
     }
-    &__cart {
-        width: 20px;
-        margin-right: 10px;
-    }
+  }
+  &__cart {
+    width: 20px;
+    margin-right: 10px;
+  }
 }
