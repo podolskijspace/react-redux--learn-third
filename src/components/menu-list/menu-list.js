@@ -13,6 +13,9 @@ class MenuList extends Component {
     const {RestoService} = this.props;
     RestoService.getMenuItems()
       .then(res => this.props.menuLoaded(res));
+
+    // RestoService.getGoods({id: ["0c4aab30", "1efa7e46"]})
+    //   .then(res => this.props.menuLoaded(res));
   }
 
   render() {
