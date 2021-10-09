@@ -49,7 +49,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 130px;
+        width: 230px;
         text-align: center;
         color: #fff;
         font-size: 24px;
@@ -62,9 +62,10 @@
       &-change {
         background: #29a745;
         border: 0;
-        border-radius: 10px;
-        padding: 2px 5px;
-        margin: 0 5px;
+        border-radius: 15px;
+        padding: 5px 15px;
+        font-size: 18px;
+        margin: 0 15px;
         cursor: pointer;
       }
       &-title, &-price  {

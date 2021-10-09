@@ -1,0 +1,7 @@
+@import '../../SCSS/media';
+
+.app {
+  @include phone {
+    touch-action: manipulation;
+  }
+}
